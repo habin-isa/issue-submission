@@ -4,8 +4,8 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 		<title>JS Issue tracker</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 	</head>
 
 	<body onload="fetchIssues()">
@@ -20,7 +20,7 @@
 					<input type="text" class="form-control" id="issueDescInput" placeholder="Describe the issue...">
 				</div>
 				<div class="form-group">
-					<label for="issueDescInput">Severity</label>
+					<label for="issueSeverityInput">Severity</label>
 					<select class="form-control" id="issueSeverityInput">
 						<option value="Low">Low</option>
 						<option value="Medium">Medium</option>
@@ -28,7 +28,7 @@
 					</select>
 				</div>
 				<div class="form-group">
-					<label for="issueDescInput">Assigned to</label>
+					<label for="issueAssignedToInput">Assigned to</label>
 					<input type="text" class="form-control" id="issueAssignedToInput" placeholder="Enter responsible...">
 				</div>
 				<button type="submit" class="btn btn-primary">Add</button>
@@ -41,7 +41,7 @@
 			</div>
 		</div>
 		<div class="footer">
-			<p>Habin Isa</p>
+			<p>Enter issues, mark as closed, delete issues</p>
 		</div>
 
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
