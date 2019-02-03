@@ -16,10 +16,42 @@ function fetchIssues() {
 														'<p><span class="label label-info">' +
 														status + '</span></p>' +
 														'<h3>' + desc + '</h3>' +
-														'<p><span class="glyphicon glyphicon-user"></span>' +
+														'<p>< span class="glyphicon glyphicon-user"></span>' +
 														assingedTo + '</p>' +
 														'<a href="#" class="btn btn-warning" onclick="setStatusClosed(\''+id+'\')">Close</a> ' +
 														'<a href="#" class="btn btn-danger" onclick="deleteIssue"(\''+id+'\')">Delete</a>' +
 														'</div>';
 	}
+};
+
+document.getElementById('issueInputForm').addEventListener('submit', saveIssue);
+
+function saveIssue(e) {
+	var issueId = chance.guid();
+	var issueDesc = document.getElementById('issueDescInput').nodeValue;
+	var issueSeverity = document.getElementById('issueSeverityInput').value;
+	var issueAssingedTo = document.getElementById('issueAssignedToInput').value;
+	var issueStatus = "Open";
+
+	var issue = {
+		id: issueId,
+		description: issueDesc,
+		severity: issueSeverity,
+		assignedTo: issueAssingedTo,
+		status: issueStatus
+	}
+
+	if (localStorage.getItem('issues') === null) {
+		var issues = [];
+		issues.push(issue);
+		localStorage.setItem('issues', JSON.stringify(issues)); 
+	} else {
+		var issues = JSON.parse(localStorage.getItem('issues'));
+		issues.push(issue);
+		localStorage.setItem('issues', JSON.stringify('issues'));
+	};
+
+	document.getElementById('issueInputForm').reset();
+	fetchIssues();
+	e.preventDefault();
 }
